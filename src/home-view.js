@@ -61,24 +61,24 @@ function createTodo(newTodo) {
 
     const todoHeading = document.createElement("h1");
     todoHeading.textContent = newTodo.title;
+    todoHeading.classList.add("todo-title");
 
     const todoDesc = document.createElement("p");
     todoDesc.textContent = newTodo.description;
+    todoDesc.classList.add("todo-desc");
 
     const todoDate = document.createElement("p");
     todoDate.textContent = newTodo.dueDate;
+    todoDate.classList.add("todo-date");
 
     const priority = document.createElement("p");
     priority.textContent = newTodo.priority;
-
-    const isCompleted = document.createElement("p");
-    isCompleted.textContent = newTodo.isCompleted;
+    priority.classList.add("priority");
 
     todo.appendChild(todoHeading);
     todo.appendChild(todoDesc);
     todo.appendChild(todoDate);
     todo.appendChild(priority);
-    todo.appendChild(isCompleted);
 
     return todo;
 }

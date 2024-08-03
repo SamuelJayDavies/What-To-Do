@@ -89,6 +89,7 @@ header h1 {
     background-color: whitesmoke;
 
     margin: 1em;
+    padding: 1em;
 }
 
 .sideBar h1 {
@@ -96,14 +97,59 @@ header h1 {
     font-size: 2.5em;
     font-weight: bold;
     -webkit-text-stroke: black 1.5px;
+
+    transition-property: color, -webkit-text-stroke, background-color;
+    transition-duration: 1s;
+}
+
+.sideBar h1:hover {
+    color: black;
+    font-size: 2.5em;
+    font-weight: bold;
+    -webkit-text-stroke: white 1.5px;
+    background-color: black;
+
+    cursor: pointer;
 }
 
 .todo {
     background-color: whitesmoke;
     margin: 1em;
     padding: 1em;
+    gap: 0.25em;
 
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 5fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition-property: color, background-color;
+    transition-duration: 1s;
+}
+
+.todo:hover {
+    background-color: rgb(0, 0, 0);
+    color: whitesmoke;
+}
+
+.todo-title {
+    font-weight: bold;
+    
+    border-right: 2px solid black;
+}
+
+.todo-title:hover {
+    border-right: 2px solid white;
+}
+
+.todo-desc {
+    grid-row: 2/4;
+}
+
+.todo-checkbox {
+    grid-column: 1/2;
 }
