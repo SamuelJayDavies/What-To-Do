@@ -2,6 +2,7 @@ import './style.css';
 
 import todolistIcon from "./images/header/to-do-list.png";
 import Todo from "./todo.js";
+import createTodoDialog from './todo-creater-view.js';
 
 function createHomeView() {
     const main = document.getElementById("main");
@@ -48,8 +49,17 @@ function createSideBar() {
     const homeProject = document.createElement("li");
     homeProject.textContent = "Home";
 
+    const addNewTodo = document.createElement("button");
+    addNewTodo.textContent = "+";
+    addNewTodo.classList.add("add-button");
+
+    addNewTodo.addEventListener("click", function() {
+        displayTodoCreator();
+    }, false);
+
     sideBar.appendChild(projectsTitle);
     sideBar.appendChild(projects);
+    sideBar.append(addNewTodo);
     projects.appendChild(projectsList);
     projectsList.appendChild(homeProject);
     return sideBar;
@@ -81,6 +91,10 @@ function createTodo(newTodo) {
     todo.appendChild(priority);
 
     return todo;
+}
+
+function displayTodoCreator() {
+    main.appendChild(createTodoDialog());
 }
 
 export default createHomeView;
