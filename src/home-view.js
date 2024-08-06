@@ -24,12 +24,16 @@ function createHeader() {
 
 function createMainContent() {
     const mainContent = document.createElement("div");
-    mainContent.classList.add("main-content");
+    mainContent.id = "main-content";
 
     mainContent.appendChild(createSideBar());
-    let testTodo = new Todo("Welcome to What-To-Do", "A very simple todo list that only has what matters", "12/04/2024", "Low", false);
+    let testTodo = createTodo("Welcome to What-To-Do", "A very simple todo list that only has what matters", "12/04/2024", "Low", false);
+    const todoDisplay = createTodoDisplay(testTodo);
+    todoDisplay.addEventListener("click", function() {
+        removeTodo(todoDisplay);
+    }, false);
 
-    mainContent.appendChild(createTodo(testTodo));
+    mainContent.appendChild(todoDisplay);
     return mainContent;
 }
 
@@ -65,7 +69,7 @@ function createSideBar() {
     return sideBar;
 }
 
-function createTodo(newTodo) {
+function createTodoDisplay(newTodo) {
     const todo = document.createElement("div");
     todo.classList.add("todo");
 
@@ -94,7 +98,36 @@ function createTodo(newTodo) {
 }
 
 function displayTodoCreator() {
-    main.appendChild(createTodoDialog());
+    const todoDialog = createTodoDialog();
+    main.appendChild(todoDialog);
+    const titleInput = document.getElementById("title-box");
+    const descInput = document.getElementById("desc-box");
+    const dateInput = document.getElementById("date-box");
+    const priorityInput = document.getElementById("priority-box");
+
+
+    const saveBtn = document.getElementById("save-btn");
+    saveBtn.addEventListener("click", function() {
+        const mainContent = document.getElementById("main-content");
+
+        const todoDisplay = createTodoDisplay(createTodo(titleInput.value, descInput.value, dateInput.value, priorityInput.value));
+        
+        todoDisplay.addEventListener("click", function() {
+            mainContent.removeChild(todoDisplay);
+        }, false);
+        mainContent.appendChild(todoDisplay);
+        main.removeChild(todoDialog);
+    }, false);
+}
+
+function createTodo(title, description, date, priority) {
+    const newTodo = new Todo(title, description, date, priority, false);
+    return newTodo;
+}
+
+function removeTodo(todoDisplay) {
+    const mainContent = document.getElementById("main-content");
+    mainContent.removeChild(todoDisplay);
 }
 
 export default createHomeView;
