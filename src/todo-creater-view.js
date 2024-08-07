@@ -30,13 +30,14 @@ function createTodoDialog() {
     priorityBox.appendChild(optionCreator("high"));
 
     const exitButton = document.createElement("button");
+    exitButton.classList.add("exit-btn");
     exitButton.id = "exit-btn";
     exitButton.textContent = "exit";
 
     const saveButton = document.createElement("button");
+    saveButton.classList.add("save-btn");
     saveButton.id = "save-btn";
     saveButton.textContent = "save";
-    saveButton.id = "save-btn";
 
     innerDialogBox.appendChild(titleBox);
     innerDialogBox.appendChild(dateBox);
