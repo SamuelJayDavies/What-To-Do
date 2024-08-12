@@ -14,7 +14,7 @@ function createTodoDialog() {
 
     const descBox = document.createElement("input");
     descBox.setAttribute("type", "text");
-    descBox.setAttribute("name", "description");
+    descBox.setAttribute("placeholder", "description");
     descBox.id = "desc-box";
 
     const dateBox = document.createElement("input");
