@@ -1,5 +1,3 @@
-import Project from "./project.js";
-
 function createProjectDialog() {
     const dialogBox = document.createElement("div");
     dialogBox.classList.add("dialog-box");

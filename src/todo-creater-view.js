@@ -1,5 +1,3 @@
-import Todo from "./todo.js";
-
 function createTodoDialog() {
     const dialogBox = document.createElement("div");
     dialogBox.classList.add("dialog-box");

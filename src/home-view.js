@@ -284,7 +284,6 @@ function displayProjectCreator() {
 
     const saveBtn = document.getElementById("project-save-btn");
     saveBtn.addEventListener("click", function() {
-        const mainContent = document.getElementById("main-content");
         const project = new Project(projectTitle.value, []);
         const projectDisplay = createProjectDisplay(project);
         const projectList = document.getElementById("project-list");
